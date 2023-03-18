@@ -1,0 +1,5 @@
+kakao:
+  blog:
+    search:
+      url: https://dapi.kakao.com/v2/search/blog
+  api-key: 96d8cfab00932a739d695c0ebf5d0307

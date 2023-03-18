@@ -1,6 +1,6 @@
 package com.assessment.externalapi.apiclient.kakao
 
-enum class Sort(val value: String) {
+enum class SortBy(val value: String) {
     Accuracy("accuracy"),
     Recency("recency")
 }
