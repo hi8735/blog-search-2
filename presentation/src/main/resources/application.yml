@@ -9,8 +9,9 @@ spring:
       - infra
       - external
   mvc:
-    pathmatch:
+    path-match:
       matching-strategy: ant_path_matcher
+
 server:
-  port: 8080
+  port: 9999
 

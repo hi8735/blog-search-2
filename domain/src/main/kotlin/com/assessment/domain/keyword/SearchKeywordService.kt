@@ -12,7 +12,6 @@ class SearchKeywordService(
         val searchKeyword = searchKeywordRepository.findByKeyword(keyword)
             ?: SearchKeyword.create(keyword = keyword)
 
-        searchKeyword.searched()
-        searchKeywordRepository.save(searchKeyword)
+        searchKeywordRepository.save(searchKeyword.searched())
     }
 }

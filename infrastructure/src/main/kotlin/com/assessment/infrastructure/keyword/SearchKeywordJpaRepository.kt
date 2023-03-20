@@ -1,8 +1,23 @@
 package com.assessment.infrastructure.keyword
 
-import org.springframework.data.jpa.repository.JpaRepository
+import com.assessment.domain.keyword.SearchKeyword
+import com.assessment.domain.keyword.SearchKeywordRepository
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Repository
 
-interface SearchKeywordJpaRepository: JpaRepository<SearchKeywordEntity, Long> {
-    fun findByKeyword(keyword: String): SearchKeywordEntity?
-    fun findTop10ByOrderByCountDesc(): List<SearchKeywordEntity>
+@Repository
+class SearchKeywordJpaRepository(
+    var repository: ISearchKeywordJpaRepository
+) : SearchKeywordRepository {
+    override fun save(searchKeyword: SearchKeyword): SearchKeyword {
+        return repository.save(SearchKeywordEntity.fromDomainModel(searchKeyword)).toDomainModel()
+    }
+
+    override fun findByKeyword(keyword: String): SearchKeyword? {
+        return repository.findByKeyword(keyword)?.toDomainModel()
+    }
+
+    override fun findPopularKeywords(): List<SearchKeyword> {
+        return repository.findTop10ByOrderByCountDesc().map { it.toDomainModel() }
+    }
 }

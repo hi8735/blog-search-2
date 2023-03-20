@@ -1,27 +1,36 @@
 package com.assessment.application.blog
 
 import com.assessment.application.blog.event.BlogSearchedEvent
-import com.assessment.application.blog.model.BlogSearchRequest
 import com.assessment.application.blog.model.BlogSearchResponse
 import com.assessment.externalapi.apiclient.BlogSearchClient
+import com.assessment.externalapi.apiclient.kakao.SortBy
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Service
 
 @Service
-class BlogSearchService(
+class BlogSearchApplicationService(
     private val blogSearchClient: BlogSearchClient,
     private val applicationEventPublisher: ApplicationEventPublisher
 ) {
-    fun searchBlogs(request: BlogSearchRequest): BlogSearchResponse {
+    fun searchBlogs(
+        query: String,
+        sort: String = SortBy.RECENCY.name,
+        page: Int = 1,
+        size: Int = 10,
+    ): BlogSearchResponse {
         val searchResult = blogSearchClient.searchBlogs(
-            query = request.query,
-            sort = request.sort.value,
-            page = request.page,
-            size = request.size
+            query = query,
+            sort = sort,
+            page = page,
+            size = size
         )
 
-        applicationEventPublisher.publishEvent(BlogSearchedEvent(request.query))
+        applicationEventPublisher.publishEvent(BlogSearchedEvent(query))
 
         return BlogSearchResponse.from(searchResult)
+    }
+
+    fun validateRequest() {
+
     }
 }

@@ -14,7 +14,7 @@ class SearchKeyword private constructor(
     }
 
     companion object {
-        fun create(id: Long = 0, keyword: String, count: Long = 1): SearchKeyword {
+        fun create(id: Long = 0, keyword: String, count: Long = 0): SearchKeyword {
             return SearchKeyword(id = id, keyword = keyword, count = count)
         }
     }
