@@ -1,7 +1,7 @@
-package com.assessment.blog
+package com.assessment.presentation.com.assessment.presentation.blog
 
-import com.assessment.blog.model.BlogSearchRequest
-import com.assessment.blog.model.BlogSearchResponse
+import com.assessment.application.blog.model.BlogSearchRequest
+import com.assessment.application.blog.model.BlogSearchResponse
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController

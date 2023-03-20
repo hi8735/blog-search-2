@@ -2,5 +2,5 @@ rootProject.name = "blogsearch"
 include("external-api")
 include("presentation")
 include("application")
-include("jpa-domain")
+include("domain")
 include("jpa-infrastructure")
