@@ -14,8 +14,6 @@ import org.springframework.web.util.UriComponentsBuilder
 @Component
 class KakaoBlogSearchClient(
     private val kakaoBlogFeignClient: KakaoBlogFeignClient,
-    @Value("\${kakao.blog.search.url}")
-    private val url: String,
     @Value("\${kakao.api-key}")
     private val kakaoApiKey: String
 ) : BlogSearchClient {

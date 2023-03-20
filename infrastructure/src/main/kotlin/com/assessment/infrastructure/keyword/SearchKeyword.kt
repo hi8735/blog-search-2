@@ -1,14 +1,14 @@
 package com.assessment.infrastructure.keyword
 
 import com.assessment.domain.keyword.SearchKeyword
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
 
 @Entity
-@Table(name = "search_keywords")
+@Table(
+    name = "search_keywords", indexes = [
+        Index(name = "idx_count", columnList = "count"),
+    ]
+)
 class SearchKeywordEntity private constructor(
     searchKeyword: SearchKeyword
 ) {
@@ -18,7 +18,7 @@ class SearchKeywordEntity private constructor(
     val keyword: String = searchKeyword.keyword
     val count: Long = searchKeyword.count
 
-    fun toDomainModel(): SearchKeyword{
+    fun toDomainModel(): SearchKeyword {
         return SearchKeyword.create(id = id, keyword = keyword, count = count)
     }
 

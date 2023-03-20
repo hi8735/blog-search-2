@@ -5,7 +5,7 @@ import org.springframework.boot.runApplication
 import org.springframework.context.annotation.ComponentScan
 
 @SpringBootApplication
-@ComponentScan("com.assessment.presentation", "com.assessment.application")
+@ComponentScan("com.assessment.", "com.assessment.application", "com.assessment.domain", "com.assessment")
 class PresentationApplication
 
 fun main(args: Array<String>) {

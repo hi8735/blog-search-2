@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: blog-search
+  profiles:
+    active: local
+    include:
+      - app
+      - domain
+      - infra
+      - external
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+server:
+  port: 8080
+

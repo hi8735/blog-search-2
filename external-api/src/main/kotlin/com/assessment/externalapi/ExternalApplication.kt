@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class ExternalApiApplication
+class ExternalApplication
 
 fun main(args: Array<String>) {
-    runApplication<ExternalApiApplication>(*args)
+    runApplication<ExternalApplication>(*args)
 }
