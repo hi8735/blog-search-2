@@ -1,28 +1,22 @@
 package com.assessment.externalapi.apiclient.model
 
-import com.fasterxml.jackson.annotation.JsonProperty
+import java.io.Serializable
+data class BlogSearchResult (
+    val paginationInfo: PaginationInfo,
+    val blogs: List<Blog>
+) : Serializable
 
-data class BlogSearchResult(
-    val meta: MetaData,
-    val documents: List<Document>
-)
-
-data class MetaData(
-    @JsonProperty("total_count")
+data class PaginationInfo(
     val totalCount: Int,
-    @JsonProperty("pageable_count")
     val totalPages: Int,
-    @JsonProperty("is_end")
-    val isEnd: Boolean
-)
+    val hasNext: Boolean
+) : Serializable
 
-data class Document(
+data class Blog(
     val title: String,
     val contents: String,
     val url: String,
-    @JsonProperty("blogname")
-    val blogName: String,
+    val name: String,
     val thumbnail: String,
-    @JsonProperty("datetime")
-    val dateTime: String
-)
+    val postedAt: String
+) : Serializable

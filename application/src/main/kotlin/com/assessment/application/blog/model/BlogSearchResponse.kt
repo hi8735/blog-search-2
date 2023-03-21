@@ -1,44 +1,44 @@
 package com.assessment.application.blog.model
 
 import com.assessment.externalapi.apiclient.model.BlogSearchResult
-import java.time.LocalDateTime
-import java.time.ZonedDateTime
-import java.time.format.DateTimeFormatter
 
-
-data class BlogSearchResponse(
-    val documents: List<Document>,
-    val totalCount: Int,
-    val totalPages: Int,
-    val hasNext: Boolean
+class BlogSearchResponse private constructor(
+    val paginationInfo: PaginationInfo,
+    val blogs: List<Blog>,
 ) {
-    data class Document(
+    data class PaginationInfo(
+        val totalCount: Int,
+        val totalPages: Int,
+        val hasNext: Boolean
+    )
+
+    data class Blog(
         val title: String,
         val contents: String,
         val url: String,
-        val blogName: String,
+        val name: String,
         val thumbnail: String,
-        val dateTime: ZonedDateTime
+        val postedAt: String
     )
 
     companion object {
         fun from(blogSearchResult: BlogSearchResult): BlogSearchResponse {
-            val formatter: DateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME
-
             return BlogSearchResponse(
-                documents = blogSearchResult.documents.map { document ->
-                    Document(
-                        title = document.title,
-                        contents = document.contents,
-                        url = document.url,
-                        blogName = document.blogName,
-                        thumbnail = document.thumbnail,
-                        dateTime = ZonedDateTime.parse(document.dateTime, formatter)
+                paginationInfo = PaginationInfo(
+                    totalCount = blogSearchResult.paginationInfo.totalCount,
+                    totalPages = blogSearchResult.paginationInfo.totalPages,
+                    hasNext = blogSearchResult.paginationInfo.hasNext
+                ),
+                blogs = blogSearchResult.blogs.map { blog ->
+                    Blog(
+                        title = blog.title,
+                        contents = blog.contents,
+                        url = blog.url,
+                        name = blog.name,
+                        thumbnail = blog.thumbnail,
+                        postedAt = blog.postedAt
                     )
                 },
-                totalCount = blogSearchResult.meta.totalCount,
-                totalPages = blogSearchResult.meta.totalPages,
-                hasNext = blogSearchResult.meta.isEnd.not()
             )
         }
     }

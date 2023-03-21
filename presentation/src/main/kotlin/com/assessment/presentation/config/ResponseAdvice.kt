@@ -24,6 +24,7 @@ class ResponseAdvice: ResponseBodyAdvice<Any> {
     ): Any? {
         return when(body) {
             is Response.Fail -> body
+            is Response.ValidationFail -> body
             is ResponseEntity<*> -> body
             else -> Response.Success.of(body)
         }

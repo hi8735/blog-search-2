@@ -8,3 +8,10 @@ kakao:
     search:
       url: https://dapi.kakao.com
   api-key: 96d8cfab00932a739d695c0ebf5d0307
+
+naver:
+  blog:
+    search:
+      url: https://openapi.naver.com
+  client-id: 0mwFVeMug1s1kepFZG30
+  client-secret: yRZnjG3JyR
