@@ -22,12 +22,4 @@ class BlogSearchController(
             size = request.size
         )
     }
-
-//    @GetMapping("/blog2")
-//    fun searchBlogs2(@Size(max = 5) query: String): BlogSearchResponse {
-//        return blogSearchApplicationService.searchBlogs(
-//            query = query,
-//
-//        )
-//    }
 }
