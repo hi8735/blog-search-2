@@ -51,7 +51,7 @@
 - Endpoint: **`GET /api/v1/search/blog`**
 - Parameters:
     - **`query`** (string): 검색어
-    - **`sort`** (string, optional): 정렬 방식 (accuracy: 정확도순, recency: 최신순, 기본값: accuracy)
+    - **`sort`** (string, optional): 정렬 방식 (ACCURACY: 정확도순, RECENCY: 최신순, 기본값: ACCURACY)
     - **`page`** (int, optional): 페이지 번호 (기본값: 1)
     - **`size`** (int, optional): 페이지당 검색 결과 개수 (기본값: 10)
 
@@ -111,8 +111,3 @@
 - OpenFeign: 외부 API 호출을 위해 사용했습니다.
 - embedded-redis: 로컬환경에서 내부 캐싱을 사용하기 위해 추가하였습니다. 
 - springfox-swagger: API 문서 제공을 위해 사용했습니다.
-
-## **추가 기능**
-
-- 캐싱: 블로그 검색 결과를 캐싱하여 API 응답 시간을 줄임
-- 이벤트 발행: 블로그 검색 시 이벤트를 발행하여 인기 검색어를 업데이트
