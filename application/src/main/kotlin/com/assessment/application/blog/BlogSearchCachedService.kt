@@ -1,5 +1,7 @@
 package com.assessment.application.blog
 
+import com.assessment.application.cache.CacheConstants
+import com.assessment.application.cache.CacheConstants.BLOG_SEARCH
 import com.assessment.exception.ExternalApiException
 import com.assessment.externalapi.apiclient.BlogSearchClient
 import com.assessment.externalapi.apiclient.blog.kakao.KakaoBlogSearchClient
@@ -16,7 +18,7 @@ class BlogSearchCachedService(
 ) {
     private val log = LoggerFactory.getLogger(javaClass)
 
-    @Cacheable(cacheNames = ["test"], key = "#query + #sort + #page + #size")
+    @Cacheable(cacheNames = [BLOG_SEARCH], key = "#query + #sort + #page + #size")
     fun getBlogSearchResult(
         query: String,
         sort: BlogSort = BlogSort.RECENCY,

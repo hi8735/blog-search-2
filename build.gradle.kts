@@ -1,4 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.bundling.BootJar
+
 plugins {
     id("org.springframework.boot") version "2.7.9"
     id("io.spring.dependency-management") version "1.0.15.RELEASE"
@@ -8,6 +10,14 @@ plugins {
 }
 
 java.sourceCompatibility = JavaVersion.VERSION_11
+
+tasks.withType<BootJar>{
+    this.enabled = false
+}
+
+tasks.getByName<Jar>("jar") {
+    this.enabled = false
+}
 
 allprojects{
     group = "com.assessment"
@@ -37,7 +47,7 @@ subprojects {
         implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.7.10")
 
         testImplementation("org.springframework.boot:spring-boot-starter-test")
-//        testRuntimeOnly("com.h2database:h2")
+        testImplementation("org.mockito.kotlin:mockito-kotlin:4.0.0")
     }
 
     tasks.withType<KotlinCompile> {

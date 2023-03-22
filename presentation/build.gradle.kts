@@ -1,3 +1,10 @@
+import org.springframework.boot.gradle.tasks.bundling.BootJar
+
+tasks.withType<BootJar>{
+    this.archiveFileName.set("${archiveBaseName.get()}.${archiveExtension.get()}")
+    this.enabled = true
+}
+
 dependencies {
     implementation(project(":application"))
     implementation(project(":infrastructure"))

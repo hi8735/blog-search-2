@@ -6,3 +6,12 @@ spring:
     type: redis
   redis:
     port: 6379
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  redis:
+    cluster:
+      nodes: ${REDIS_CLUSTER_NODES:localhost:6379} # local에서는 embeded redis를 사용하고 개발 및 운영등의 환경에서는 실제 레디스 서버를 활용한다.
