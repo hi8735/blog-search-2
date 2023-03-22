@@ -40,5 +40,4 @@ class KakaoBlogSearchClientTest {
         assertThat("주택모기지 아파트담보대출 시중은행 <b>인터넷은행</b> 한도 금리비교").isEqualTo(naverBlogSearchResult.items[1].title)
         assertThat(2).isEqualTo(blogSearchResult.blogs.size)
     }
-
 }
