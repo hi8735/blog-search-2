@@ -54,10 +54,45 @@
     - **`sort`** (string, optional): 정렬 방식 (ACCURACY: 정확도순, RECENCY: 최신순, 기본값: ACCURACY)
     - **`page`** (int, optional): 페이지 번호 (기본값: 1)
     - **`size`** (int, optional): 페이지당 검색 결과 개수 (기본값: 10)
+- response
+    ```json
+    {
+      "data": {
+        "paginationInfo": {
+          "totalCount": Int,
+          "totalPages": Int,
+          "hasNext": Boolean
+        },
+        "blogs": [
+          {
+            "title": String,
+            "contents": String,
+            "url": String,
+            "name": String,
+            "thumbnail": String,
+            "postedAt": String
+          }
+        ]
+      }
+    }
+    ```
+    
+
 
 ### **인기 검색어 목록 API**
 
 - Endpoint: **`GET /api/v1/search/popular-keywords`**
+- response
+    ```json
+    {
+      "data": [
+        {
+          "keyword": String,
+          "count": Long
+        }
+      ]
+    }
+    ```
 
 ## **모듈 구성**
 

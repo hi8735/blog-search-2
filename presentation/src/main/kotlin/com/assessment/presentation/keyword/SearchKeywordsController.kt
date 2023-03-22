@@ -1,6 +1,7 @@
 package com.assessment.presentation.keyword
 
 import com.assessment.application.keyword.SearchKeywordApplicationProvider
+import com.assessment.application.keyword.model.SearchKeywordModel
 import io.swagger.annotations.Api
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -14,7 +15,7 @@ class SearchKeywordsController(
 ) {
 
     @GetMapping("/popular-keywords")
-    fun getPopularKeywords(): List<Any> {
+    fun getPopularKeywords(): List<SearchKeywordModel> {
         return searchKeywordApplicationProvider.getPopularKeywords()
     }
 }
