@@ -4,7 +4,6 @@ import com.assessment.application.cache.CacheConstants.BLOG_SEARCH
 import com.assessment.application.cache.CacheConstants.BLOG_SEARCH_TTL_SECONDS
 import com.assessment.application.cache.CacheConstants.POPULAR_KEYWORDS
 import com.assessment.application.cache.CacheConstants.POPULAR_KEYWORDS_TTL_SECONDS
-import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.cache.CacheManager
 import org.springframework.cache.annotation.EnableCaching
 import org.springframework.context.annotation.Bean

@@ -17,7 +17,6 @@ data class KakaoBlogSearchResult(
             hasNext = !meta.isEnd
         )
 
-        val formatter: DateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME
         val blogs = documents.map { document ->
             Blog(
                 title = document.title,

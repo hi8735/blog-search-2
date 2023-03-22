@@ -1,8 +1,12 @@
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 tasks.withType<BootJar>{
-    this.archiveFileName.set("${archiveBaseName.get()}.${archiveExtension.get()}")
+    this.archiveFileName.set("blog-search-api.jar")
     this.enabled = true
+}
+
+tasks.getByName("jar") {
+    this.enabled = false
 }
 
 dependencies {
