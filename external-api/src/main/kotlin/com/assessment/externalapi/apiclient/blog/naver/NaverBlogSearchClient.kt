@@ -29,7 +29,7 @@ class NaverBlogSearchClient(
                 clientSecret = clientSecret,
                 query = query,
                 sort = NaverBlogSort(sort).sort,
-                start = page + 1,
+                start = page,
                 display = size,
             ).toBlogSearchResult()
         } catch (e: FeignException) {

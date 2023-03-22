@@ -36,7 +36,7 @@ class ExceptionHandlerAdvice {
     @ExceptionHandler(CustomException::class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     fun customExceptionHandler(e: CustomException): Response.Fail {
-        log.error(e.message, e)
+        log.error(e.errorMessage, e)
 
         return Response.Fail.create(e.errorCode.code, e.javaClass.simpleName, e.errorMessage)
     }

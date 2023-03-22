@@ -2,7 +2,7 @@ package com.assessment.application.blog.model
 
 import com.assessment.externalapi.apiclient.model.BlogSearchResult
 
-class BlogSearchResponse private constructor(
+data class BlogSearchResponse (
     val paginationInfo: PaginationInfo,
     val blogs: List<Blog>,
 ) {

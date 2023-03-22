@@ -1,7 +1,6 @@
 package com.assessment.externalapi.apiclient.blog.naver
 
-import com.assessment.externalapi.apiclient.blog.naver.model.NaverBlogResult
-import com.assessment.externalapi.apiclient.model.BlogSearchResult
+import com.assessment.externalapi.apiclient.blog.naver.model.NaverBlogSearchResult
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestHeader
@@ -17,5 +16,5 @@ interface NaverBlogSearchFeignClient {
         @RequestParam("sort") sort: String? = null,
         @RequestParam("start") start: Int? = null,
         @RequestParam("display") display: Int? = null
-    ): NaverBlogResult
+    ): NaverBlogSearchResult
 }

@@ -7,11 +7,11 @@ kakao:
   blog:
     search:
       url: https://dapi.kakao.com
-  api-key: 96d8cfab00932a739d695c0ebf5d0307
+  api-key: ${KAKAO_API_KEY:96d8cfab00932a739d695c0ebf5d0307}
 
 naver:
   blog:
     search:
       url: https://openapi.naver.com
-  client-id: 0mwFVeMug1s1kepFZG30
-  client-secret: yRZnjG3JyR
+  client-id: ${NAVER_CLIENT_ID:0mwFVeMug1s1kepFZG30}
+  client-secret: ${NAVER_CLIENT_SECRET:yRZnjG3JyR} #원래대로라면 시크릿 매니저나 환경변수로 빼야 하지만 기능 점검을 위해 임시로 넣어두었습니다.
