@@ -7,6 +7,7 @@ import javax.persistence.*
 @Table(
     name = "search_keywords", indexes = [
         Index(name = "idx_count", columnList = "count"),
+        Index(name = "idx_keyword", columnList = "keyword"),
     ]
 )
 class SearchKeywordEntity private constructor(

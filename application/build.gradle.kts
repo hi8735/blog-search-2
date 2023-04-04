@@ -2,6 +2,7 @@ dependencies {
     implementation(project(":external-api"))
     implementation(project(":domain"))
     implementation(project(":common"))
+    implementation(project(":infrastructure"))
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
     implementation("it.ozimov:embedded-redis:0.7.3") {

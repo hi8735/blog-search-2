@@ -9,14 +9,10 @@ import com.assessment.model.BlogSort
 import feign.FeignException
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
-import org.springframework.context.annotation.Primary
-import org.springframework.core.annotation.Order
 import org.springframework.stereotype.Component
 
 @Component
-@Primary
-@Order(1)
-class KakaoBlogSearchClient(
+class AakaoBlogSearchClient(
     private val kakaoBlogSearchFeignClient: KakaoBlogSearchFeignClient,
     @Value("\${kakao.api-key}")
     private val kakaoApiKey: String

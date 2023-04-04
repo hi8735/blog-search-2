@@ -6,7 +6,6 @@ plugins {
     id("io.spring.dependency-management") version "1.0.15.RELEASE"
     kotlin("jvm") version "1.7.10"
     kotlin("plugin.spring") version "1.7.10"
-    kotlin("plugin.jpa") version "1.7.10"
 }
 
 java.sourceCompatibility = JavaVersion.VERSION_11
@@ -46,7 +45,9 @@ subprojects {
     dependencies {
         implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.7.10")
 
-        testImplementation("org.springframework.boot:spring-boot-starter-test")
+        testImplementation("org.springframework.boot:spring-boot-starter-test"){
+            exclude(group = "junit", module = "junit-vintage-engine")
+        }
         testImplementation("org.mockito.kotlin:mockito-kotlin:4.0.0")
     }
 

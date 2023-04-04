@@ -2,6 +2,7 @@ package com.assessment.application.blog
 
 import com.assessment.application.blog.event.BlogSearchedEvent
 import com.assessment.application.blog.model.BlogSearchResponse
+import com.assessment.application.events.BlogEventPublisher
 import com.assessment.model.BlogSort
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Service
@@ -10,7 +11,7 @@ import org.springframework.validation.annotation.Validated
 @Service
 @Validated
 class BlogSearchApplicationService(
-    private val applicationEventPublisher: ApplicationEventPublisher,
+    private val blogEventPublisher: BlogEventPublisher,
     private val blogSearchCachedService: BlogSearchCachedService
 ) {
     fun searchBlogs(
@@ -26,7 +27,7 @@ class BlogSearchApplicationService(
             size = size
         )
 
-        applicationEventPublisher.publishEvent(BlogSearchedEvent(query))
+        blogEventPublisher.publishEvent(BlogSearchedEvent(query))
 
         return BlogSearchResponse.from(searchResult)
     }

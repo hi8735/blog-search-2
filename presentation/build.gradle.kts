@@ -11,9 +11,14 @@ tasks.getByName("jar") {
 
 dependencies {
     implementation(project(":application"))
-    implementation(project(":infrastructure"))
     implementation(project(":common"))
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("io.springfox:springfox-boot-starter:3.0.0")
+
+    implementation("org.springframework.boot:spring-boot-starter-aop")
+    implementation("org.aspectj:aspectjweaver")
+
+//    testImplementation("org.springframework.boot:spring-boot-starter-aop")
+//    testImplementation("org.aspectj:aspectjweaver")
 }

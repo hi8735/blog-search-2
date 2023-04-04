@@ -59,18 +59,18 @@
     {
       "data": {
         "paginationInfo": {
-          "totalCount": Int,
-          "totalPages": Int,
-          "hasNext": Boolean
+          "totalCount": "Int",
+          "totalPages": "Int",
+          "hasNext": "Boolean"
         },
         "blogs": [
           {
-            "title": String,
-            "contents": String,
-            "url": String,
-            "name": String,
-            "thumbnail": String,
-            "postedAt": String
+            "title": "String",
+            "contents": "String",
+            "url": "String",
+            "name": "String",
+            "thumbnail": "String",
+            "postedAt": "String"
           }
         ]
       }
@@ -87,8 +87,8 @@
     {
       "data": [
         {
-          "keyword": String,
-          "count": Long
+          "keyword": "String",
+          "count": "Long"
         }
       ]
     }

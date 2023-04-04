@@ -3,7 +3,6 @@ plugins {
 }
 
 allOpen {
-    annotation("javax.persistence.Entity")
     annotation("org.springframework.cache.annotation.Cacheable")
 }
 

@@ -19,3 +19,11 @@ server:
       charset: UTF-8
       enabled: true
       force: true
+
+---
+spring:
+  profiles:
+    active: dev
+
+server:
+  port: 9000
